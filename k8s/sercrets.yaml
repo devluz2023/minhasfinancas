@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: langgraph-secrets
+type: Opaque
+# stringData permite escrever o valor em texto limpo (o K8s converte para base64 internamente)
+stringData:
+  OPENAI_API_KEY: "sk-proj-xxxxxxxxxxxxxxxxxxxxxxxx"
+  TAVILY_API_KEY: "tvly-xxxxxxxxxxxxxxxxxxxxxxxx"

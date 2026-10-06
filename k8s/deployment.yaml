@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: langgraph-agent-deployment
+  labels:
+    app: langgraph-agent
+spec:
+  replicas: 2 # Mantém 2 instâncias do seu agente rodando para alta disponibilidade
+  selector:
+    matchLabels:
+      app: langgraph-agent
+  template:
+    metadata:
+      labels:
+        app: langgraph-agent
+    spec:
+      containers:
+      - name: agent-container
+        # Substitua pela URL do seu repositório (ex: ECR na AWS ou DockerHub)
+        image: seu-usuario/meu-agente-langgraph:latest 
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8000 # Porta que a sua API FastAPI está escutando
+        envFrom:
+        - secretRef:
+            name: langgraph-secrets # Injeta as variáveis do secret.yaml
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "250m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"

@@ -1,0 +1,32 @@
+# ==========================================
+# Core: LangChain & LangGraph
+# ==========================================
+langchain>=0.2.0
+langchain-core>=0.2.0
+langgraph>=0.2.0
+chromadb
+# ==========================================
+# Provedores de LLM (Modelos)
+# ==========================================
+# Mantivemos OpenAI como padrão. Descomente os outros se for usá-los.
+langchain-openai
+# langchain-anthropic
+# langchain-google-genai
+# langchain-ollama
+
+# ==========================================
+# Ferramentas e Integrações
+# ==========================================
+# tavily-python é a ferramenta de busca oficial mais recomendada nos tutoriais do LangGraph
+tavily-python 
+
+# ==========================================
+# Utilitários
+# ==========================================
+python-dotenv   # Para carregar as variáveis do arquivo .env
+pydantic>=2.0.0 # Para tipagem e validação de dados (muito usado no state.py)
+
+# ==========================================
+# Testes
+# ==========================================
+pytest
